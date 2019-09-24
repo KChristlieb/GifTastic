@@ -23,6 +23,24 @@ $(document).ready(function() {
             newBtn.text(sports[i]);
             $("#buttons-view").append(newBtn);
         
+        }
     }
 
-})
+        renderButtons();
+
+        // event to allow a new gif and button to be displayed when the add button is clicked
+        $("#new-gif").on("click", function(event){
+            event.preventDefault();
+
+            var addition = $("#gif-input").val().trim();
+
+            sports.push(addition);
+
+            renderButtons();
+
+            $("#gif-input").val("");
+        });
+
+        
+
+});
