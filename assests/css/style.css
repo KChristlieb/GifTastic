@@ -1,7 +1,12 @@
   
 .jumbotron {
-    background-image: url("../images/gif2.gif");
-    background-size: cover;
-    background-size: 200px;
-    color: coral;
+    background-image: url("../images/Sports.png");
 }
+
+#heading {
+    font-family: 'Black Ops One', cursive;
+    font-size: 75px;
+    color: black;
+    text-align: center;
+}
+
