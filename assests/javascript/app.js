@@ -47,7 +47,7 @@ $(document).ready(function() {
             $("#gifs").empty();
 
             var sport = $(this).attr("data-name");
-            var quaryURL = "api.giphy.com/v1/gifs/search?q=" + sport + "&api_key=MqOe5HSv0B9EyOTItfIIZuVN9HSOR75j";
+            var quaryURL = "http://api.giphy.com/v1/gifs/search?q=" + sport + "&api_key=MqOe5HSv0B9EyOTItfIIZuVN9HSOR75j";
 
             $.ajax ({
                 url: quaryURL,
@@ -56,8 +56,46 @@ $(document).ready(function() {
                 console.log(responce);
 
                 var results = responce.data;
-                
-            })
-        }
+
+                for (var i = 0; i < results.length; i++) {
+
+                    if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+                        var sportsDiv = $("<div>");
+                        var p = $("<p>");
+                        p.text("rating: " + results[i].rating);
+                        var sportGif = $("<img>");
+                        sportGif.attr("src", results[i].images.fixed_height_still.url);
+                        sportGif.attr("date-still", results[i].images.fixed_height_still.url);
+                        sportGif.attr("data-animate", results[i].images.fixed_height_still.url);
+                        sportGif.attr("sata-state", "still");
+                        sportGif.addClass("pic");
+                        sportsDiv.append(p);
+                        sportsDiv.append(sportGif);
+                        $("#gifs").prepend(sportsDiv);
+                    }
+                }
+            });
+        };
+
+        function changeState(){
+            
+            var state = $(this).attr("data-state");
+            var still = $(this).attr("data-animate");
+            var animate = $(this).attr("data-still");
+        
+            if (state === "still") {
+                $(this).attr("src", animate);
+                $(this).attr("data-state", "animate");
+            }
+            else {
+                $(this).attr("src", still);
+                $(this).attr("data-state", "still");
+            }
+    
+        }   
+    
+        $(document).on("click", ".sports-button", displayGif);
+    
+        $(document).on("click", ".pic", changeState);
 
 });
