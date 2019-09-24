@@ -41,6 +41,23 @@ $(document).ready(function() {
             $("#gif-input").val("");
         });
 
-        
+        // display the gif image to the DOM
+        function displayGif() {
+
+            $("#gifs").empty();
+
+            var sport = $(this).attr("data-name");
+            var quaryURL = "api.giphy.com/v1/gifs/search?q=" + sport + "&api_key=MqOe5HSv0B9EyOTItfIIZuVN9HSOR75j";
+
+            $.ajax ({
+                url: quaryURL,
+                method: "GET"
+            }).then(function(responce){
+                console.log(responce);
+
+                var results = responce.data;
+                
+            })
+        }
 
 });
