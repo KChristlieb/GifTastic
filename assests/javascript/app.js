@@ -47,7 +47,7 @@ $(document).ready(function() {
             $("#gifs").empty();
 
             var sport = $(this).attr("data-name");
-            var quaryURL = "http://api.giphy.com/v1/gifs/search?q=" + sport + "&api_key=MqOe5HSv0B9EyOTItfIIZuVN9HSOR75j";
+            var quaryURL = "https://api.giphy.com/v1/gifs/search?q=" + sport + "&api_key=MqOe5HSv0B9EyOTItfIIZuVN9HSOR75j";
 
             $.ajax ({
                 url: quaryURL,
