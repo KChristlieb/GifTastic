@@ -65,9 +65,9 @@ $(document).ready(function() {
                         p.text("rating: " + results[i].rating);
                         var sportGif = $("<img>");
                         sportGif.attr("src", results[i].images.fixed_height_still.url);
-                        sportGif.attr("date-still", results[i].images.fixed_height_still.url);
-                        sportGif.attr("data-animate", results[i].images.fixed_height_still.url);
-                        sportGif.attr("sata-state", "still");
+                        sportGif.attr("data-still", results[i].images.fixed_height_still.url);
+                        sportGif.attr("data-animate", results[i].images.fixed_height.url);
+                        sportGif.attr("data-state", "still");
                         sportGif.addClass("pic");
                         sportsDiv.append(p);
                         sportsDiv.append(sportGif);
